@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api")
+//@RequestMapping("/api")
 public class HabilidadesController {
 
     private final HabilidadesRepository habilidadesRepository;
@@ -21,24 +21,24 @@ public class HabilidadesController {
 
     }
 
-    @GetMapping("/habilidades")
+    @GetMapping("/api/habilidades")
     public Iterable<Habilidades> getAllHabilidades() {
         return this.habilidadesRepository.findAll();
     }
 
-    @GetMapping("/habilidades/{id}")
+    @GetMapping("/api/habilidades/{id}")
     public Optional<Habilidades> getHabilidadesById(@PathVariable("id") Integer id) {
         return this.habilidadesRepository.findById(id);
     }
 
-    @PostMapping("/habilidades")
+    @PostMapping("/editor/habilidades")
     @PreAuthorize("hasRole('ADMIN')")
     public Habilidades createNewHabilidades(@RequestBody Habilidades habilidades) {
         Habilidades newHabilidades = this.habilidadesRepository.save(habilidades);
         return newHabilidades;
     }
 
-    @PutMapping("/habilidades/{id}")
+    @PutMapping("/editor/habilidades/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public Habilidades updateHabilidades(
             @PathVariable("id") Integer id,
@@ -60,7 +60,7 @@ public class HabilidadesController {
         return updatedHabilidades;
     }
 
-    @DeleteMapping("/habilidades/{id}")
+    @DeleteMapping("/editor/habilidades/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public Habilidades deleteHabilidades(@PathVariable("id") Integer id){
         Optional<Habilidades> habilidadesToDeleteOptional = this.habilidadesRepository.findById(id);

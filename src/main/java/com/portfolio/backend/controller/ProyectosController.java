@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api")
+//@RequestMapping("/api")
 public class ProyectosController {
 
     private final ProyectosRepository proyectosRepository;
@@ -21,24 +21,24 @@ public class ProyectosController {
 
     }
 
-    @GetMapping("/proyectos")
+    @GetMapping("/api/proyectos")
     public Iterable<Proyectos> getAllProyectos() {
         return this.proyectosRepository.findAll();
     }
 
-    @GetMapping("/proyectos/{id}")
+    @GetMapping("/api/proyectos/{id}")
     public Optional<Proyectos> getProyectosById(@PathVariable("id") Integer id) {
         return this.proyectosRepository.findById(id);
     }
 
-    @PostMapping("/proyectos")
+    @PostMapping("/editor/proyectos")
     @PreAuthorize("hasRole('ADMIN')")
     public Proyectos createNewProyectos(@RequestBody Proyectos proyectos) {
         Proyectos newProyectos = this.proyectosRepository.save(proyectos);
         return newProyectos;
     }
 
-    @PutMapping("/proyectos/{id}")
+    @PutMapping("/editor/proyectos/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public Proyectos updateProyecto(
             @PathVariable("id") Integer id,
@@ -67,7 +67,7 @@ public class ProyectosController {
         return updatedProyectos;
     }
 
-    @DeleteMapping("/proyectos/{id}")
+    @DeleteMapping("/editor/proyectos/{id}")
     @PreAuthorize("hasRole('ADMIN')")
 
     public Proyectos deleteProyectos(@PathVariable("id") Integer id){

@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api")
+//@RequestMapping("/api")
 public class ExperienciaController {
 
     private final ExperienciaRepository experienciaRepository;
@@ -21,24 +21,24 @@ public class ExperienciaController {
 
     }
 
-    @GetMapping("/experiencia")
+    @GetMapping("/api/experiencia")
     public Iterable<Experiencia> getAllExperiencia() {
         return this.experienciaRepository.findAll();
     }
 
-    @GetMapping("/experiencia/{id}")
+    @GetMapping("/api/experiencia/{id}")
     public Optional<Experiencia> getExperienciaById(@PathVariable("id") Integer id) {
         return this.experienciaRepository.findById(id);
     }
 
-    @PostMapping("/experiencia")
+    @PostMapping("/editor/experiencia")
     @PreAuthorize("hasRole('ADMIN')")
     public Experiencia createNewExperiencia(@RequestBody Experiencia experiencia) {
         Experiencia newExperiencia = this.experienciaRepository.save(experiencia);
         return newExperiencia;
     }
 
-    @PutMapping("/experiencia/{id}")
+    @PutMapping("/editor/experiencia/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public Experiencia updateExperiencia(
             @PathVariable("id") Integer id,
@@ -72,7 +72,7 @@ public class ExperienciaController {
         return updatedExperiencia;
     }
 
-    @DeleteMapping("/experiencia/{id}")
+    @DeleteMapping("/editor/experiencia/{id}")
     @PreAuthorize("hasRole('ADMIN')")
 
     public Experiencia deleteExperiencia(@PathVariable("id") Integer id){

@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api")
+//@RequestMapping("/api")
 public class EducacionController {
 
     private final EducacionRepository educacionRepository;
@@ -20,25 +20,25 @@ public class EducacionController {
         this.educacionRepository = educacionRepository;
     }
 
-    @GetMapping("/educacion")
+    @GetMapping("/api/educacion")
 
     public Iterable<Educacion> getAllEducacion() {
         return this.educacionRepository.findAll();
     }
 
-    @GetMapping("/educacion/{id}")
+    @GetMapping("/api/educacion/{id}")
     public Optional<Educacion> getEducacionById(@PathVariable("id") Integer id) {
         return this.educacionRepository.findById(id);
     }
 
-    @PostMapping("/educacion")
+    @PostMapping("/editor/agregar/educacion")
     @PreAuthorize("hasRole('ADMIN')")
     public Educacion createNewEducacion(@RequestBody Educacion educacion) {
         Educacion newEducacion = this.educacionRepository.save(educacion);
         return newEducacion;
     }
 
-    @PutMapping("/educacion/{id}")
+    @PutMapping("/editor/editar/educacion/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public Educacion updateEducacion(
             @PathVariable("id") Integer id,
@@ -72,7 +72,7 @@ public class EducacionController {
         return updatedEducacion;
     }
 
-    @DeleteMapping("/educacion/{id}")
+    @DeleteMapping("/editor/borrar/educacion/{id}")
     @PreAuthorize("hasRole('ADMIN')")
 
     public Educacion deleteEducacion(@PathVariable("id") Integer id){

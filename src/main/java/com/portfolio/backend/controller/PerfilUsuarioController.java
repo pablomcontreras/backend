@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api")
+//@RequestMapping("/api")
 public class PerfilUsuarioController {
 
     private final PerfilUsuarioRepository perfilUsuarioRepository;
@@ -21,24 +21,24 @@ public class PerfilUsuarioController {
 
     }
 
-    @GetMapping("/perfilusuario")
+    @GetMapping("/api/perfilusuario")
     public Iterable<PerfilUsuario> getAllPerfilUsuario() {
         return this.perfilUsuarioRepository.findAll();
     }
 
-    @GetMapping("/perfilusuario/{id}")
+    @GetMapping("/api/perfilusuario/{id}")
     public Optional<PerfilUsuario> getPerfilUsuarioById(@PathVariable("id") Integer id) {
         return this.perfilUsuarioRepository.findById(id);
     }
 
-    @PostMapping("/perfilusuario")
+    @PostMapping("/editor/perfilusuario")
     @PreAuthorize("hasRole('ADMIN')")
     public PerfilUsuario createNewPerfilUsuario(@RequestBody PerfilUsuario perfilUsuario) {
         PerfilUsuario newPerfilUsuario = this.perfilUsuarioRepository.save(perfilUsuario);
         return newPerfilUsuario;
     }
 
-    @PutMapping("/perfilusuario/{id}")
+    @PutMapping("/editor/perfilusuario/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public PerfilUsuario updatePerfilUsuario(
             @PathVariable("id") Integer id,
@@ -67,7 +67,7 @@ public class PerfilUsuarioController {
         return updatedPerfilUsuario;
     }
 
-    @DeleteMapping("/perfilusuario/{id}")
+    @DeleteMapping("/editor/perfilusuario/{id}")
     @PreAuthorize("hasRole('ADMIN')")
 
     public PerfilUsuario deletePerfilUsuario(@PathVariable("id") Integer id){
