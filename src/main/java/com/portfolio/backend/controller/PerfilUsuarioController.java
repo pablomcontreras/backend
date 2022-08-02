@@ -62,6 +62,9 @@ public class PerfilUsuarioController {
         if (usr.getImgUrl() != null) {
             perfilUsuarioToUpdate.setImgUrl(usr.getImgUrl());
         }
+        if (usr.getPortadaUrl() != null) {
+            perfilUsuarioToUpdate.setPortadaUrl(usr.getPortadaUrl());
+        }
 
         PerfilUsuario updatedPerfilUsuario = this.perfilUsuarioRepository.save(perfilUsuarioToUpdate);
         return updatedPerfilUsuario;

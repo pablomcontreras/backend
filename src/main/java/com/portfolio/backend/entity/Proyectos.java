@@ -28,4 +28,9 @@ public class Proyectos {
     @Column (name = "TECNOLOGIAS")
     private String tecnologias;
 
+    @Column (name = "PROYECTO_URL")
+    private String proyectoUrl;
+
+    @Column (name = "SOURCECODE_URL")
+    private String sourceCodeUrl;
 }

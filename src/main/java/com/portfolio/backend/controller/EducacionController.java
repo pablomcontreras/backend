@@ -31,14 +31,14 @@ public class EducacionController {
         return this.educacionRepository.findById(id);
     }
 
-    @PostMapping("/editor/agregar/educacion")
+    @PostMapping("/editor/educacion")
     @PreAuthorize("hasRole('ADMIN')")
     public Educacion createNewEducacion(@RequestBody Educacion educacion) {
         Educacion newEducacion = this.educacionRepository.save(educacion);
         return newEducacion;
     }
 
-    @PutMapping("/editor/editar/educacion/{id}")
+    @PutMapping("/editor/educacion/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public Educacion updateEducacion(
             @PathVariable("id") Integer id,
@@ -72,7 +72,7 @@ public class EducacionController {
         return updatedEducacion;
     }
 
-    @DeleteMapping("/editor/borrar/educacion/{id}")
+    @DeleteMapping("/editor/educacion/{id}")
     @PreAuthorize("hasRole('ADMIN')")
 
     public Educacion deleteEducacion(@PathVariable("id") Integer id){

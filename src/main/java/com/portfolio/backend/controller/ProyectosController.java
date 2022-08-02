@@ -60,9 +60,16 @@ public class ProyectosController {
             proyectosToUpdate.setImgUrl(pro.getImgUrl());
         }
         if (pro.getTecnologias() != null) {
-            proyectosToUpdate.setTitulo(pro.getTecnologias());
+            proyectosToUpdate.setTecnologias(pro.getTecnologias());
         }
 
+        if (pro.getProyectoUrl() != null) {
+            proyectosToUpdate.setProyectoUrl(pro.getProyectoUrl());
+        }
+
+        if (pro.getSourceCodeUrl() != null) {
+            proyectosToUpdate.setSourceCodeUrl(pro.getSourceCodeUrl());
+        }
         Proyectos updatedProyectos = this.proyectosRepository.save(proyectosToUpdate);
         return updatedProyectos;
     }

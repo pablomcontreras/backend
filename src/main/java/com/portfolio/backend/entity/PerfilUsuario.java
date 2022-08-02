@@ -24,6 +24,17 @@ public class PerfilUsuario {
     @Column(name="IMG_URL")
     private String imgUrl;
 
+    @Column(name="PORTADA_URL")
+    private String portadaUrl;
+
+    public String getPortadaUrl() {
+        return portadaUrl;
+    }
+
+    public void setPortadaUrl(String portadaUrl) {
+        this.portadaUrl = portadaUrl;
+    }
+
     public Integer getId() {
         return id;
     }
