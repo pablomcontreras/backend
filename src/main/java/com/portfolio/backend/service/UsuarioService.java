@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @Service
 @Transactional
+//declaro el servicio
 public class UsuarioService {
 
     @Autowired
