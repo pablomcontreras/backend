@@ -67,6 +67,9 @@ public class EducacionController {
         if (edu.getDescripcion() != null) {
             educacionToUpdate.setDescripcion(edu.getDescripcion());
         }
+        if (edu.getOrden() != null) {
+            educacionToUpdate.setOrden(edu.getOrden());
+        }
 
         Educacion updatedEducacion = this.educacionRepository.save(educacionToUpdate);
         return updatedEducacion;

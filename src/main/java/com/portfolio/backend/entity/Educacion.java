@@ -33,6 +33,9 @@ public class Educacion {
     @Column (name = "DESCRIPCION")
     private String descripcion;
 
+    @Column (name = "ORDEN")
+    private String orden;
+
     public Integer getId() {
         return id;
     }
