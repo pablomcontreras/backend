@@ -70,6 +70,11 @@ public class ProyectosController {
         if (pro.getSourceCodeUrl() != null) {
             proyectosToUpdate.setSourceCodeUrl(pro.getSourceCodeUrl());
         }
+
+        if (pro.getOrden() != null) {
+            proyectosToUpdate.setOrden(pro.getOrden());
+        }
+
         Proyectos updatedProyectos = this.proyectosRepository.save(proyectosToUpdate);
         return updatedProyectos;
     }

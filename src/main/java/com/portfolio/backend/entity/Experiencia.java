@@ -34,5 +34,7 @@ import javax.persistence.*;
         @Column(name = "DESCRIPCION")
         private String descripcion;
 
+        @Column (name = "ORDEN")
+        private Integer orden;
 
     }

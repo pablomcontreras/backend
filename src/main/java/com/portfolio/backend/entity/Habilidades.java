@@ -22,4 +22,7 @@ public class Habilidades {
 
     @Column( name = "AVANCE")
     private Integer avance;
+
+    @Column (name = "ORDEN")
+    private Integer orden;
 }

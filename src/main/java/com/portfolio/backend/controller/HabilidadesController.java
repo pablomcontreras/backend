@@ -56,6 +56,10 @@ public class HabilidadesController {
             habilidadesToUpdate.setAvance(hab.getAvance());
         }
 
+        if (hab.getOrden() != null) {
+            habilidadesToUpdate.setOrden(hab.getOrden());
+        }
+
         Habilidades updatedHabilidades = this.habilidadesRepository.save(habilidadesToUpdate);
         return updatedHabilidades;
     }

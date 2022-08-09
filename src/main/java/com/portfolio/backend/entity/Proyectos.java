@@ -33,4 +33,7 @@ public class Proyectos {
 
     @Column (name = "SOURCECODE_URL")
     private String sourceCodeUrl;
+
+    @Column (name = "ORDEN")
+    private Integer orden;
 }

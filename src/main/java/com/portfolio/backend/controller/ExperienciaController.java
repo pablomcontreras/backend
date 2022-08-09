@@ -67,7 +67,9 @@ public class ExperienciaController {
         if (exp.getDescripcion() != null) {
             experienciaToUpdate.setDescripcion(exp.getDescripcion());
         }
-
+        if (exp.getOrden() != null) {
+            experienciaToUpdate.setOrden(exp.getOrden());
+        }
         Experiencia updatedExperiencia = this.experienciaRepository.save(experienciaToUpdate);
         return updatedExperiencia;
     }
